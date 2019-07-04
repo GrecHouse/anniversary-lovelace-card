@@ -2,6 +2,7 @@
 
 ### 이 카드 소스는 https://github.com/erlsta/homeassistant-lovelace-birthday-reminder-card 를 이용해 만들어졌습니다.
 
+<br><br>
 
 홈어시스턴트 lovelace 커스텀 UI 입니다.\
 아래의 anniversary 커스텀 컴포넌트 센서를 이용합니다.

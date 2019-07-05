@@ -25,6 +25,15 @@
 
 <br>
 
+## Version history
+| Version | Date        |               |
+| :-----: | :---------: | ------------- |
+| v0.1    | 2019.07.11  | First version  |
+| v0.2    | 2019.07.12  | showdate 옵션 추가<br>anniversary 센서 1.1 버전 필요 |
+
+<br>
+
+
 ## Installation
 
 - HA 설치 경로 아래 www 폴더에 파일을 넣어줍니다.\
@@ -40,7 +49,7 @@
 
 ```yaml
 resources:
-  - url: /local/anniversary-card.js?v=0.1
+  - url: /local/anniversary-card.js?v=0.2
     type: js
 ```
 
@@ -53,6 +62,7 @@ entities:
   - sensor.anniv_wedding
 lang: ko
 numberofdays: 90
+showdate: both
 title: Anniversary
 type: 'custom:anniversary-card'
 ```
@@ -68,6 +78,7 @@ type: 'custom:anniversary-card'
 |lang| (옵션) 표시언어. 기본값은 en, 한글로 바꾸려면 ko |
 |title| (옵션) 카드 상단에 표시되는 카드명칭<br>기본값은 기념일 (ko) / Anniversary (en) |
 |numberofdays| (옵션) 화면에 표시할 센서의 기한. 기본값은 31일<br>설정한 일수 이하로 남은 기념일만 표시됨 |
+|showdate| (옵션) 음력기념일의 날짜 표시 설정<br><ul><li>solar = 양력으로 표시 (기본값)</li><li>lunar = 음력으로 표시</li><li>both = 양력, 음력 둘다 표시</li></ul>
 
 <br>
 

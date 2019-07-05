@@ -40,12 +40,16 @@ class AnniversaryCard extends HTMLElement {
 			const annivList = [];
 			
 			const numberOfDays = this.config.numberofdays ? this.config.numberofdays : 31; //Number of days from today upcoming birthdays will be displayed - default 31
+			const showDate = this.config.showdate ? this.config.showdate : "solar";
 
 			entities.forEach(el => {
 				try {
 					const anniv = hass.states[el];
 					const up_date = anniv.attributes.upcoming_date;
 					let this_date = new Date(up_date);
+
+					const lunardate = new Date(anniv.attributes.lunar_date);
+					const lunar = "음" + (lunardate.getMonth()+1) + "." + lunardate.getDate()
 
 					annivList.push({
 						"name": anniv.attributes.friendly_name,
@@ -56,7 +60,9 @@ class AnniversaryCard extends HTMLElement {
 						"day": this_date.getDate(),
 						"type": anniv.attributes.type,
 						"icon": anniv.attributes.icon,
-						"id": anniv.entity_id
+						"id": anniv.entity_id,
+						"is_lunar": anniv.attributes.is_lunar,
+						"lunar_date": lunar
 					});
 				} catch(e) {}
 			});
@@ -82,7 +88,19 @@ class AnniversaryCard extends HTMLElement {
 					annivToday = annivToday + `<div class='aniv-wrapper aniv-today' entity-id='${obj.id}'><ha-icon class='ha-icon entity on' icon='mdi:crown'></ha-icon><div class='aniv-name'>${obj.name} (${obj.age}${MSG.space}${MSG.years}) ${bdSymbol}</div><div class='aniv-when'>${MSG.today}</div></div>`;
 				} else if ( obj.count <= numberOfDays ) {
 					var dbExpr = obj.count == 1 ? MSG.tomorrow : MSG.in + " " + obj.count + " " + MSG.days;
-					annivNext = annivNext + `<div class='aniv-wrapper' entity-id='${obj.id}'><ha-icon class='ha-icon entity' icon='${obj.icon}'></ha-icon><div class='aniv-name'>${obj.name} (${obj.age}${MSG.space}${MSG.years}) ${bdSymbol}</div><div class='aniv-when'>${dbExpr} (${obj.month}.${obj.day})</div></div>`;
+					if ( obj.is_lunar == "True" ){
+						if ( showDate == "both" ) {
+							dbExpr = dbExpr + ` (${obj.month}.${obj.day}/${obj.lunar_date})`;
+						} else if ( showDate == "lunar" ) {
+							dbExpr = dbExpr + ` (${obj.lunar_date})`;
+						} else {
+							dbExpr = dbExpr + ` (${obj.month}.${obj.day})`;
+						}
+					} else {
+						dbExpr = dbExpr + ` (${obj.month}.${obj.day})`;
+					}
+
+					annivNext = annivNext + `<div class='aniv-wrapper' entity-id='${obj.id}'><ha-icon class='ha-icon entity' icon='${obj.icon}'></ha-icon><div class='aniv-name'>${obj.name} (${obj.age}${MSG.space}${MSG.years}) ${bdSymbol}</div><div class='aniv-when'>${dbExpr}</div></div>`;
 				}
 
 			});

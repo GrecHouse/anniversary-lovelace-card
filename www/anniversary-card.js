@@ -77,30 +77,33 @@ class AnniversaryCard extends HTMLElement {
 			
 			annivList.forEach(obj => {
 				
-				var bdSymbol = "";
+				var infoLeft = obj.name;
+				if (obj.type != 'todo' && obj.type != 'event') {
+					infoLeft = infoLeft + ` (${obj.age}${MSG.space}${MSG.years})`;
+				}
 				if (obj.type == 'memorial') {
-					bdSymbol = " " + symbolMemorial;
+					infoLeft = infoLeft + ` ${symbolMemorial}`;
 				} else if (obj.type == 'wedding') {
-					bdSymbol = " " + symbolMarried;
+					infoLeft = infoLeft + ` ${symbolMarried}`;
 				}
 
 				if ( obj.count == 0 ) {
-					annivToday = annivToday + `<div class='aniv-wrapper aniv-today' entity-id='${obj.id}'><ha-icon class='ha-icon entity on' icon='mdi:crown'></ha-icon><div class='aniv-name'>${obj.name} (${obj.age}${MSG.space}${MSG.years}) ${bdSymbol}</div><div class='aniv-when'>${MSG.today}</div></div>`;
+					annivToday = annivToday + `<div class='aniv-wrapper aniv-today' entity-id='${obj.id}'><ha-icon class='ha-icon entity on' icon='mdi:crown'></ha-icon><div class='aniv-name'>${infoLeft}</div><div class='aniv-when'>${MSG.today}</div></div>`;
 				} else if ( obj.count <= numberOfDays ) {
-					var dbExpr = obj.count == 1 ? MSG.tomorrow : MSG.in + " " + obj.count + " " + MSG.days;
+					var infoRight = obj.count == 1 ? MSG.tomorrow : MSG.in + " " + obj.count + " " + MSG.days;
 					if ( obj.is_lunar == "True" ){
 						if ( showDate == "both" ) {
-							dbExpr = dbExpr + ` (${obj.month}.${obj.day}/${obj.lunar_date})`;
+							infoRight = infoRight + ` (${obj.month}.${obj.day}/${obj.lunar_date})`;
 						} else if ( showDate == "lunar" ) {
-							dbExpr = dbExpr + ` (${obj.lunar_date})`;
+							infoRight = infoRight + ` (${obj.lunar_date})`;
 						} else {
-							dbExpr = dbExpr + ` (${obj.month}.${obj.day})`;
+							infoRight = infoRight + ` (${obj.month}.${obj.day})`;
 						}
 					} else {
-						dbExpr = dbExpr + ` (${obj.month}.${obj.day})`;
+						infoRight = infoRight + ` (${obj.month}.${obj.day})`;
 					}
 
-					annivNext = annivNext + `<div class='aniv-wrapper' entity-id='${obj.id}'><ha-icon class='ha-icon entity' icon='${obj.icon}'></ha-icon><div class='aniv-name'>${obj.name} (${obj.age}${MSG.space}${MSG.years}) ${bdSymbol}</div><div class='aniv-when'>${dbExpr}</div></div>`;
+					annivNext = annivNext + `<div class='aniv-wrapper' entity-id='${obj.id}'><ha-icon class='ha-icon entity' icon='${obj.icon}'></ha-icon><div class='aniv-name'>${infoLeft}</div><div class='aniv-when'>${infoRight}</div></div>`;
 				}
 
 			});

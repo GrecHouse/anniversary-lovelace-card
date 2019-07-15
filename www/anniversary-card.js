@@ -51,6 +51,7 @@ class AnniversaryCard extends HTMLElement {
             
             const numberOfDays = this.config.numberofdays ? this.config.numberofdays : 31; //Number of days from today upcoming birthdays will be displayed - default 31
             const showDate = this.config.showdate ? this.config.showdate : "solar";
+            const noshoplist = this.config.noshoplist ? this.config.noshoplist : false;
 
             entities.forEach(el => {
                 try {
@@ -77,28 +78,30 @@ class AnniversaryCard extends HTMLElement {
                 } catch(e) {}
             });
 
-            for( var key in ttsensor.attributes ) {
-                if ( key != "friendly_name" && key != "icon" ){
-                    try {
-                        const value = ttsensor.attributes[key];
-                        const solar = value[1].split('.');
-                        const is_lunar = value[2] !== "solar";
-                        const lunar = is_lunar ? "음"+value[2] : "";
+            if ( !noshoplist ) {
+                for( var key in ttsensor.attributes ) {
+                    if ( key != "friendly_name" && key != "icon" ){
+                        try {
+                            const value = ttsensor.attributes[key];
+                            const solar = value[1].split('.');
+                            const is_lunar = value[2] !== "solar";
+                            const lunar = is_lunar ? "음"+value[2] : "";
 
-                        annivList.push({
-                            "name": key,
-                            "count": value[0],
-                            "age": 0,
-                            "date": value[1],
-                            "month": solar[0],
-                            "day": solar[1],
-                            "type": "todo",
-                            "icon": "mdi:calendar-check",
-                            "id": "",
-                            "is_lunar": is_lunar,
-                            "lunar_date": lunar
-                        });
-                    } catch(e) {}
+                            annivList.push({
+                                "name": key,
+                                "count": value[0],
+                                "age": 0,
+                                "date": value[1],
+                                "month": solar[0],
+                                "day": solar[1],
+                                "type": "todo",
+                                "icon": "mdi:calendar-check",
+                                "id": "",
+                                "is_lunar": is_lunar,
+                                "lunar_date": lunar
+                            });
+                        } catch(e) {}
+                    }
                 }
             }
 
@@ -106,7 +109,6 @@ class AnniversaryCard extends HTMLElement {
                 return Number(a.count) < Number(b.count) ? -1 : Number(a.count) > Number(b.count) ? 1 : 0;
             });
             
-
             var annivToday = "";
             var annivNext = "";
             

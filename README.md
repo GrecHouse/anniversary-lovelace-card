@@ -22,15 +22,18 @@
 
 - anniversary sensor type 이 `memorial` 일 경우 옆에 `†` 아이콘이\
 `wedding` 일 경우 `♥` 아이콘이 붙어서 보여집니다.
+- anniversary sensor type 이 `todo` 또는 `event`일 경우 count(x번째)가 표시되지 않습니다.
+- 장보기목록에 추가된 항목은 type 이 `todo`로 추가됩니다.
 
 <br>
 
 ## Version history
 | Version | Date        |               |
 | :-----: | :---------: | ------------- |
-| v0.1    | 2019.07.11  | First version  |
-| v0.2    | 2019.07.12  | showdate 옵션 추가<br>anniversary 센서 1.1 버전 필요 |
-| v0.21   | 2019.07.12  | type이 todo 또는 event 일 경우에는 count(x번째) 표시를 하지 않음 |
+| v0.1    | 2019.07.04  | First version  |
+| v0.2    | 2019.07.05  | showdate 옵션 추가<br>anniversary 센서 1.1 버전 필요 |
+| v0.21   | 2019.07.05  | type이 todo 또는 event 일 경우에는 count(x번째) 표시를 하지 않음 |
+| v0.3    | 2019.07.15  | 장보기목록 이용 기능 추가<br>anniversary 센서 1.2 버전 필요 |
 
 <br>
 

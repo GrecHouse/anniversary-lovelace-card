@@ -55,7 +55,7 @@
 
 ```yaml
 resources:
-  - url: /local/anniversary-card.js?v=0.31
+  - url: /local/anniversary-card.js?v=0.32
     type: js
 ```
 

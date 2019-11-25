@@ -86,9 +86,10 @@ class AnniversaryCard extends HTMLElement {
                             const solar = value[1].split('.');
                             const is_lunar = value[2] !== "solar";
                             const lunar = is_lunar ? "음"+value[2] : "";
+                            const name = value[3] ? value[3] : key;
 
                             annivList.push({
-                                "name": key,
+                                "name": name,
                                 "count": value[0],
                                 "age": 0,
                                 "date": value[1],

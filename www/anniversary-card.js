@@ -73,6 +73,7 @@ class AnniversaryCard extends HTMLElement {
                         "icon": anniv.attributes.icon,
                         "id": anniv.entity_id,
                         "is_lunar": anniv.attributes.is_lunar == 'True' ? true : false,
+                        "is_mmdd": anniv.attributes.is_mmdd == 'True' ? true : false,
                         "lunar_date": lunar
                     });
                 } catch(e) {}
@@ -99,6 +100,7 @@ class AnniversaryCard extends HTMLElement {
                                 "icon": "mdi:calendar-check",
                                 "id": "",
                                 "is_lunar": is_lunar,
+                                "is_mmdd": true,
                                 "lunar_date": lunar
                             });
                         } catch(e) {}
@@ -116,7 +118,7 @@ class AnniversaryCard extends HTMLElement {
             annivList.forEach(obj => {
                 
                 var infoLeft = obj.name;
-                if (obj.type != 'todo' && obj.type != 'event') {
+                if (!obj.is_mmdd && obj.type != 'todo' && obj.type != 'event') {
                     infoLeft = infoLeft + ` (${obj.age}${MSG.space}${MSG.years})`;
                 }
                 if (obj.type == 'memorial') {

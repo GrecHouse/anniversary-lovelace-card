@@ -20,9 +20,10 @@
 ![screenshot_anniv_card_02](https://user-images.githubusercontent.com/49514473/60637306-ee105500-9e54-11e9-9a6e-504c951727bc.png)
 ![screenshot_anniv_card_01](https://user-images.githubusercontent.com/49514473/60637307-eea8eb80-9e54-11e9-827b-28a687453f8f.png)
 
-- anniversary sensor type 이 `memorial` 일 경우 옆에 `†` 아이콘이\
+- anniversary sensor type 이 `memorial` 일 경우 옆에 `†` 아이콘이,\
 `wedding` 일 경우 `♥` 아이콘이 붙어서 보여집니다.
-- anniversary sensor type 이 `todo` 또는 `event`일 경우 count(x번째)가 표시되지 않습니다.
+- anniversary sensor type 이 `todo` 또는 `event` 이거나\
+date 형식이 `mm-dd`일 경우 count(x번째)가 표시되지 않습니다.
 - 장보기목록에 추가된 항목은 type 이 `todo`로 추가됩니다.
 
 <br>
@@ -36,6 +37,7 @@
 | v0.3    | 2019.07.15  | 장보기목록 이용 기능 추가<br>anniversary 센서 1.2 버전 필요 |
 | v0.31   | 2019.07.15  | noshoplist 옵션 추가 |
 | v0.32   | 2019.11.25  | 장보기목록 동일 명칭 중복 항목 버그 수정 |
+| v0.4    | 2019.12.11  | mm-dd 형식 지원<br>anniversary 센서 1.3 버전 필요 |
 
 <br>
 
@@ -55,17 +57,17 @@
 
 ```yaml
 resources:
-  - url: /local/anniversary-card.js?v=0.32
+  - url: /local/anniversary-card.js?v=0.4
     type: js
 ```
 
 - card 설정을 추가
 ```yaml
 entities:
-  - sensor.anniv_birth_wife
-  - sensor.anniv_birth_son
-  - sensor.anniv_memorial_daddy
-  - sensor.anniv_wedding
+  - sensor.birthday_hong
+  - sensor.wedding
+  - sensor.steve_jobs
+  - sensor.anniv_mmdd
 lang: ko
 numberofdays: 90
 showdate: both

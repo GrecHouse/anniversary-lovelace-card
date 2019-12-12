@@ -38,6 +38,7 @@ date 형식이 `mm-dd`일 경우 count(x번째)가 표시되지 않습니다.
 | v0.31   | 2019.07.15  | noshoplist 옵션 추가 |
 | v0.32   | 2019.11.25  | 장보기목록 동일 명칭 중복 항목 버그 수정 |
 | v0.4    | 2019.12.11  | mm-dd 형식 지원<br>anniversary 센서 1.3 버전 필요 |
+| v0.5    | 2019.12.12  | 제목 보이지 않도록 하는 설정 추가 |
 
 <br>
 
@@ -57,7 +58,7 @@ date 형식이 `mm-dd`일 경우 count(x번째)가 표시되지 않습니다.
 
 ```yaml
 resources:
-  - url: /local/anniversary-card.js?v=0.4
+  - url: /local/anniversary-card.js?v=0.5
     type: js
 ```
 
@@ -84,7 +85,7 @@ type: 'custom:anniversary-card'
 |type| (필수) custom:anniversary-card |
 |entities| (필수) 표시할 센서 목록 |
 |lang| (옵션) 표시언어. 기본값은 en, 한글로 바꾸려면 ko |
-|title| (옵션) 카드 상단에 표시되는 카드명칭<br>기본값은 기념일 (ko) / Anniversary (en) |
+|title| (옵션) 카드 상단에 표시되는 카드명칭<br>설정하지 않을 경우 기본값은 기념일 (ko) / Anniversary (en)<br>'' 또는 'none'으로 지정시 제목  |
 |numberofdays| (옵션) 화면에 표시할 센서의 기한. 기본값은 31일<br>설정한 일수 이하로 남은 기념일만 표시됨 |
 |showdate| (옵션) 음력기념일의 날짜 표시 설정<br><ul><li>solar = 양력으로 표시 (기본값)</li><li>lunar = 음력으로 표시</li><li>both = 양력, 음력 둘다 표시</li></ul>|
 |noshoplist| (옵션) 장보기목록 사용 안함 여부. 기본값은 false<br>true로 설정하면 장보기목록 리스트는 보이지 않음. |

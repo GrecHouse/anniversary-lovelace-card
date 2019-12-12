@@ -216,9 +216,13 @@ class AnniversaryCard extends HTMLElement {
 
             const card = document.createElement('ha-card');
             const tittel = this.config.title;
-            card.header = tittel ? tittel : MSG.title; // Card title from ui-lovelace.yaml - Defaults to Anniversary
             this.content = document.createElement('div');
-            this.content.style.padding = '0 16px 16px';
+            if ( '' != tittel && 'none' != tittel ) {
+                card.header = tittel ? tittel : MSG.title; // Card title from ui-lovelace.yaml - Defaults to Anniversary
+                this.content.style.padding = '0 16px 16px';
+            } else {
+                this.content.style.padding = '16px';
+            }
             
             card.appendChild(this.content);
             this.appendChild(card);

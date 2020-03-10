@@ -1,4 +1,5 @@
 ![version](https://img.shields.io/badge/version-0.5-blue)
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
 
 # Anniversary Lovelace UI card for Home Assistant
 
@@ -47,8 +48,14 @@ date 형식이 `mm-dd`일 경우 count(x번째)가 표시되지 않습니다.
 
 ## Installation
 
+### 직접 설치
 - HA 설치 경로 아래 www 폴더에 파일을 넣어줍니다.\
 `<config directory>/www/anniversary-card.js`
+
+### HACS로 설치
+- HACS > SETTINGS 메뉴 선택
+- ADD CUSTOM REPOSITORY에 `https://github.com/GrecHouse/anniversary-lovelace-card` 입력, Category에 `Plugin` 선택 후 저장
+- HACS > PLUGINS 메뉴에서 `[KR] Anniversary Card` 검색하여 설치
 
 <br>
 
@@ -56,14 +63,22 @@ date 형식이 `mm-dd`일 경우 count(x번째)가 표시되지 않습니다.
 ## Usage
 
 ### configuration
+
 - lovelace UI 설정 최상단 아래 내용을 추가
 
+#### 직접 설치
 ```yaml
 resources:
   - url: /local/anniversary-card.js?v=0.5
     type: js
 ```
 
+#### HACS로 설치
+```yaml
+resources:
+  - url: /community_plugin/anniversary-lovelace-card/anniversary-card.js
+    type: js
+```
 - card 설정을 추가
 ```yaml
 entities:

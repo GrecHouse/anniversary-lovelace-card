@@ -1,3 +1,5 @@
+![version](https://img.shields.io/badge/version-0.5-blue)
+
 # Anniversary Lovelace UI card for Home Assistant
 
 ### 이 카드 소스는 https://github.com/erlsta/homeassistant-lovelace-birthday-reminder-card 를 이용해 만들어졌습니다.

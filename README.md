@@ -77,7 +77,7 @@ resources:
 #### HACS로 설치
 ```yaml
 resources:
-  - url: /community_plugin/anniversary-lovelace-card/anniversary-card.js
+  - url: /hacsfiles/anniversary-lovelace-card/anniversary-card.js
     type: js
 ```
 - card 설정을 추가

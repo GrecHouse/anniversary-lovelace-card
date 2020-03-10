@@ -54,7 +54,8 @@ date 형식이 `mm-dd`일 경우 count(x번째)가 표시되지 않습니다.
 
 ### HACS로 설치
 - HACS > SETTINGS 메뉴 선택
-- ADD CUSTOM REPOSITORY에 `https://github.com/GrecHouse/anniversary-lovelace-card` 입력, Category에 `Plugin` 선택 후 저장
+- ADD CUSTOM REPOSITORY에 `https://github.com/GrecHouse/anniversary-lovelace-card` 입력, \
+  Category에 `Plugin` 선택 후 저장
 - HACS > PLUGINS 메뉴에서 `[KR] Anniversary Card` 검색하여 설치
 
 <br>

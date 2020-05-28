@@ -53,10 +53,11 @@ date 형식이 `mm-dd`일 경우 count(x번째)가 표시되지 않습니다.
 `<config directory>/www/anniversary-card.js`
 
 ### HACS로 설치
-- HACS > SETTINGS 메뉴 선택
-- ADD CUSTOM REPOSITORY에 `https://github.com/GrecHouse/anniversary-lovelace-card` 입력, \
-  Category에 `Plugin` 선택 후 저장
-- HACS > PLUGINS 메뉴에서 `[KR] Anniversary Card` 검색하여 설치
+- HACS > Frontend 메뉴 선택
+- 우측 상단 메뉴 버튼 클릭 후 Custom repositories 선택
+- Add Custom Repository URL 에 `https://github.com/GrecHouse/anniversary-lovelace-card` 입력, \
+  Category에 `Lovelace` 선택 후 ADD
+- HACS > Frontend 메뉴에서 우측 하단 + 버튼 누르고 `[KR] Anniversary Card` 검색하여 설치
 
 <br>
 

@@ -52,6 +52,7 @@ class AnniversaryCard extends HTMLElement {
             const numberOfDays = this.config.numberofdays ? this.config.numberofdays : 31; //Number of days from today upcoming birthdays will be displayed - default 31
             const showDate = this.config.showdate ? this.config.showdate : "solar";
             const noshoplist = this.config.noshoplist ? this.config.noshoplist : false;
+            const showKAge = this.config.showkage ? this.config.showkage : false;
 
             entities.forEach(el => {
                 try {
@@ -66,6 +67,7 @@ class AnniversaryCard extends HTMLElement {
                         "name": anniv.attributes.friendly_name,
                         "count": anniv.state,
                         "age": anniv.attributes.upcoming_count,
+                        "kage": anniv.attributes.korean_age,
                         "date": up_date,
                         "month": this_date.getMonth()+1,
                         "day": this_date.getDate(),
@@ -93,6 +95,7 @@ class AnniversaryCard extends HTMLElement {
                                 "name": name,
                                 "count": value[0],
                                 "age": 0,
+                                "kage": 0,
                                 "date": value[1],
                                 "month": solar[0],
                                 "day": solar[1],
@@ -122,9 +125,11 @@ class AnniversaryCard extends HTMLElement {
                     infoLeft = infoLeft + ` (${obj.age}${MSG.space}${MSG.years})`;
                 }
                 if (obj.type == 'memorial') {
-                    infoLeft = infoLeft + ` ${symbolMemorial}`;
+                    infoLeft = infoLeft + ` <sup>${symbolMemorial}</sup>`;
                 } else if (obj.type == 'wedding') {
-                    infoLeft = infoLeft + ` ${symbolMarried}`;
+                    infoLeft = infoLeft + ` <sup>${symbolMarried}</sup>`;
+                } else if (showKAge && obj.type == 'birth') {
+                    infoLeft = infoLeft + ` <sup>${obj.kage}</sup>`;
                 }
 
                 if ( obj.count == 0 ) {

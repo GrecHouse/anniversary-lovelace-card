@@ -27,6 +27,8 @@
 `wedding` 일 경우 `♥` 아이콘이 붙어서 보여집니다.
 - anniversary sensor type 이 `todo` 또는 `event` 이거나\
 date 형식이 `mm-dd`일 경우 count(x번째)가 표시되지 않습니다.
+- anniversary sensor type 이 `birth` 이고, showkage 옵션이 `true` 일 경우\
+한국 나이가 아이콘 자리에 표시됩니다.
 - 장보기목록에 추가된 항목은 type 이 `todo`로 추가됩니다.
 
 <br>
@@ -42,6 +44,7 @@ date 형식이 `mm-dd`일 경우 count(x번째)가 표시되지 않습니다.
 | v0.32   | 2019.11.25  | 장보기목록 동일 명칭 중복 항목 버그 수정 |
 | v0.4    | 2019.12.11  | mm-dd 형식 지원<br>anniversary 센서 1.3 버전 필요 |
 | v0.5    | 2019.12.12  | 제목 보이지 않도록 하는 설정 추가 |
+| v0.6    | 2021.05.03  | 한국 나이 표시 추가 |
 
 <br>
 
@@ -91,6 +94,7 @@ entities:
 lang: ko
 numberofdays: 90
 showdate: both
+showkage: true
 title: Anniversary
 type: 'custom:anniversary-card'
 ```
@@ -107,11 +111,12 @@ type: 'custom:anniversary-card'
 |title| (옵션) 카드 상단에 표시되는 카드명칭<br>설정하지 않을 경우 기본값은 기념일 (ko) / Anniversary (en)<br>'' 또는 'none'으로 지정시 제목 보이지 않음 |
 |numberofdays| (옵션) 화면에 표시할 센서의 기한. 기본값은 31일<br>설정한 일수 이하로 남은 기념일만 표시됨 |
 |showdate| (옵션) 음력기념일의 날짜 표시 설정<br><ul><li>solar = 양력으로 표시 (기본값)</li><li>lunar = 음력으로 표시</li><li>both = 양력, 음력 둘다 표시</li></ul>|
+|showkage| (옵션) 한국 나이 표시 여부. 기본값은 false<br>true로 설정하면 윗첨자 스타일로 한국 나이가 추가 표시됨. |
 |noshoplist| (옵션) 장보기목록 사용 안함 여부. 기본값은 false<br>true로 설정하면 장보기목록 리스트는 보이지 않음. |
 
 <br>
 
 ## 버그 또는 문의사항
 네이버 카페 [HomeAssistant](https://cafe.naver.com/koreassistant/) `그렉하우스` \
-네이버 카페 [SmartThings&IoT Home](https://cafe.naver.com/stsmarthome/) `그레고리하우스`
+네이버 카페 [SmartThings&IoT Home](https://cafe.naver.com/stsmarthome/) `그렉하우스`
 
